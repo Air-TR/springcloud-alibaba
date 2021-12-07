@@ -1,0 +1,25 @@
+server:
+  port: 9011
+  servlet:
+    context-path: /order
+
+spring:
+  application:
+    name: order
+#  profiles:
+#    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848  # Nacos服务注册中心地址
+        namespace: 0a7f03dd-d8da-4089-af39-0f2d672e75ac  # 使用 public 命名空间可以注掉该配置
+      config:
+        server-addr: 127.0.0.1:8848  # Nacos配置中心地址
+        file-extension: yml          # 指定yml格式的配置件
+        namespace: 0a7f03dd-d8da-4089-af39-0f2d672e75ac  # 使用 public 命名空间可以注掉该配置
+    compatibility-verifier:
+      enabled: false  # 关闭兼容性校验，不关闭的话，本项目中使用的 cloud 版本与 boot2.4 以上版本不兼容，需把 boot 版本降到 2.3.x / 2.4.x
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080  # sentinel dashboard 地址
+#        port: 8191  # 默认 8179 端口，如果被占用会增加 1，可以不配，让机器自己去加
