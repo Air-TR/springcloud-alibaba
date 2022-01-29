@@ -22,7 +22,7 @@ public class OrderController {
     @GetMapping("/feign/test")
     public String orderFeignTest() {
 //        int a = 1 / 0;
-        return "Order Feign Success";
+        return "Order Feign Success，from: " + port;
     }
 
     @Value("${server.port}")

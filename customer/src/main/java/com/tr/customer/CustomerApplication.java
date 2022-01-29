@@ -5,6 +5,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+/**
+ * 本项目包含功能:
+ * 	1.nacos
+ * 	2.openfeign
+ * 	3.gateway（需启动 gateway 项目）
+ *
+ * @author TR
+ * @date 2022/1/26 下午5:25
+ */
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
