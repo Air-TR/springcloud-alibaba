@@ -1,3 +1,5 @@
+# ------------------------------ 本文件配置内容建议放到 nacos 管理 ------------------------------
+# ----- 服务启动会优先使用 Nacos 中配置，没有再找本地
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -1,0 +1,22 @@
+# ------------------------------ 本文件配置内容建议放到 nacos 管理 ------------------------------
+# ----- 服务启动会优先使用 Nacos 中配置，没有再找本地
+spring:
+  cloud:
+    gateway:  # 注释本地 gateway 配置，放到 Nacos 中，可以更新 routes 节点发布生效而不用重新启动
+# ----- 以下两配置 discovery / routes 二选一使用；
+# ----- 注：使用 discovery 配置，需要在请求 url 端口号后多加一次服务id，如本项目中访问 order 系统，则为 http://127.0.0.1:9000/order/order/port，
+#      discovery:  # 开启此配置访问 order 系统示例：http://127.0.0.1:9000/order/order/port（端口号后多加一次服务id）
+#        locator:
+#          enabled: true  # 启用自动根据服务id生成路由
+#          lower-case-service-id: true  # 设置路由的路径为小写的服务id
+      routes:  # 开启此配置访问 order 系统示例：http://127.0.0.1:9000/order/port（正常接口访问）
+        - id: customer           # 路由id，建议用服务名，也可以随便取，只要保证唯一
+          uri: lb://customer     # 代表从注册中心获取服务，且以 lb(load-balance) 负载均衡方式转发
+          predicates:
+            - Path=/customer/**  # 断言，路径相匹配的进行路由（注意 ** 为通配符 --- 后缀）
+        - id: order
+          uri: lb://order
+          predicates:
+            - Path=/order/**
+    compatibility-verifier:
+      enabled: false  # 关闭兼容性校验，不关闭的话，本项目中使用的 cloud 版本与 boot2.4 以上版本不兼容，需把 boot 版本降到 2.3.x / 2.4.x
