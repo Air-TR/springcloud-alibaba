@@ -1,4 +1,4 @@
-package com.tr.customer;
+package com.tr.openfeign;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,22 +6,18 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
- * 本项目包含功能:
- * 	1.nacos
- * 	2.openfeign
- * 	3.gateway（需启动 gateway 项目）
- * 	4.sentinel
+ * 此项目：验证 Openfeign 相关功能
  *
  * @author TR
- * @date 2022/1/26 下午5:25
+ * @date 2022/8/18 上午10:37
  */
 @EnableDiscoveryClient
 @EnableFeignClients
 @SpringBootApplication
-public class CustomerApplication {
+public class OpenfeignApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CustomerApplication.class, args);
+		SpringApplication.run(OpenfeignApplication.class, args);
 	}
 
 }

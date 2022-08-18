@@ -22,4 +22,4 @@ spring:
     sentinel:
       transport:
         dashboard: 127.0.0.1:8080  # sentinel dashboard 地址
-#        port: 8179  # 默认 8179 端口，如果被占用会增加 1，可以不配，让机器自己去加
+#        port: 8719  # 默认 8719 端口，如果被占用会增加 1，可以不配，让机器自己去加

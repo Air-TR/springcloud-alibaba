@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.tr</groupId>
-	<artifactId>customer</artifactId>
+	<artifactId>openfeign</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>customer</name>
-	<description>Customer System</description>
+	<name>openfeign</name>
+	<description>Demo project for OpenFeign</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -22,10 +22,18 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- 2.4 及以上版本的 boot，bootstrap 文件读取逻辑有变更，加上此配置用于正常读取 bootstrap 文件 -->
+		<!-- 引入 openfeign，需要注意与 SpringBoot 版本适配关系，否则可能启动失败 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<version>3.0.4</version>
+		</dependency>
+
+		<!-- SpringCloud Feign 在 Hoxton.M2 RELEASED 版本之后不再使用 Ribbon 而是使用 spring-cloud-loadbalancer，
+           所以要引入 spring-cloud-loadbalancer，不引入启动会报错 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-loadbalancer</artifactId>
 			<version>3.0.4</version>
 		</dependency>
 
@@ -40,46 +48,14 @@
 			<version>2021.1</version>
 		</dependency>
 
-		<!-- spring-cloud-starter-alibaba-sentinel 包含了 com.alibaba.csp.sentinel-core
+		<!-- 只需要引入 spring-cloud-starter-alibaba-sentinel 就能在 Sentinel Dashboard 监控显示
+			使用时注意与 SpringBoot 版本兼容，不兼容会导致启动失败：如循环依赖导致的失败等
+			spring-cloud-starter-alibaba-sentinel 包含了 com.alibaba.csp.sentinel-core
 			并且实际测试，只引入了 sentinel-core，同样的配置下 Sentinel 不生效，具体原因不详 -->
 		<dependency>
 			<groupId>com.alibaba.cloud</groupId>
 			<artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
 			<version>2021.1</version>
-		</dependency>
-
-		<!-- openfeign Start -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-			<version>3.0.4</version>
-		</dependency>
-		<!-- SpringCloud Feign在 Hoxton.M2 RELEASED 版本之后不再使用 Ribbon 而是使用 spring-cloud-loadbalancer，
-			所以要引入 spring-cloud-loadbalancer，不引入启动会报错 -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-loadbalancer</artifactId>
-			<version>3.0.4</version>
-		</dependency>
-		<!-- openfeign End -->
-
-		<!-- Database start -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<!-- Database end -->
-
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.22</version>
-			<scope>provided</scope>
 		</dependency>
 
 		<dependency>

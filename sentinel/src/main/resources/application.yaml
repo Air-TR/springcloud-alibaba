@@ -1,0 +1,13 @@
+server:
+  port: 9021
+  servlet:
+    context-path: /sentinel
+
+spring:
+  application:
+    name: sentinel
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080  # sentinel dashboard 地址
+#        port: 8720  # 默认 8719 端口，如果被占用会增加 1，可以不配，让机器自己去加
