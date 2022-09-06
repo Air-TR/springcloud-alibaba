@@ -7,6 +7,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +32,7 @@ public class CustomerController {
 
     @GetMapping("/port")
     public String getPort() {
-        return port;
+        return "customer: " + port + " --> " + new Date();
     }
 
     @Resource

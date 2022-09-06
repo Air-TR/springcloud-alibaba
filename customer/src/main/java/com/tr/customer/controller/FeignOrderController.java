@@ -1,7 +1,7 @@
 package com.tr.customer.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.tr.customer.feign.OrderFeign;
+import com.tr.customer.feign.OrderFeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,12 +15,12 @@ import javax.annotation.Resource;
 public class FeignOrderController {
 
     @Resource
-    private OrderFeign orderFeign;
+    private OrderFeignClient orderFeignClient;
 
     @GetMapping("/feign/order")
     @SentinelResource(fallback = "handlerFallback")
     public String feignOrderTest() {
-        return orderFeign.feignOrderTest();
+        return orderFeignClient.feignOrderTest();
     }
 
     public String handlerFallback() {
@@ -29,7 +29,7 @@ public class FeignOrderController {
 
     @GetMapping("/feign/orders/all")
     public String feignOrdersAll() {
-        return orderFeign.feignOrdersAll();
+        return orderFeignClient.feignOrdersAll();
     }
 
 }

@@ -10,3 +10,7 @@ spring:
     show-sql: true
   jackson:
     time-zone: Asia/Shanghai
+
+
+config:
+  value: Nacos Config Value

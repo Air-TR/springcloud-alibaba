@@ -3,6 +3,8 @@
 spring:
   cloud:
     gateway:  # 注释本地 gateway 配置，放到 Nacos 中，可以更新 routes 节点发布生效而不用重新启动
+      default-filters:
+        - AddRequestHeader=origin, gateway  # 添加名为 origin 的请求头，值为 gateway
 # ----- 以下两配置 discovery / routes 二选一使用；
 # ----- 注：使用 discovery 配置，需要在请求 url 端口号后多加一次服务id，如本项目中访问 order 系统，则为 http://127.0.0.1:9000/order/order/port，
 #      discovery:  # 开启此配置访问 order 系统示例：http://127.0.0.1:9000/order/order/port（端口号后多加一次服务id）
