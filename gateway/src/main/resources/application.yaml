@@ -4,13 +4,13 @@ spring:
   cloud:
     gateway:  # 注释本地 gateway 配置，放到 Nacos 中，可以更新 routes 节点发布生效而不用重新启动
       default-filters:
-        - AddRequestHeader=origin, gateway  # 添加名为 origin 的请求头，值为 gateway
+        - AddRequestHeader=origin, gateway  # 添加名为 origin 的请求头，值为 gateway（是配合 sentinel 白名单、黑名单使用的）
 # ----- 以下两配置 discovery / routes 二选一使用；
 # ----- 注：使用 discovery 配置，需要在请求 url 端口号后多加一次服务id，如本项目中访问 order 系统，则为 http://127.0.0.1:9000/order/order/port，
 #      discovery:  # 开启此配置访问 order 系统示例：http://127.0.0.1:9000/order/order/port（端口号后多加一次服务id）
 #        locator:
-#          enabled: true  # 启用自动根据服务id生成路由
-#          lower-case-service-id: true  # 设置路由的路径为小写的服务id
+#          enabled: true  # 启用自动根据服务 id 生成路由
+#          lower-case-service-id: true  # 设置路由的路径为小写的服务 id
       routes:  # 开启此配置访问 order 系统示例：http://127.0.0.1:9000/order/port（正常接口访问）
         - id: customer           # 路由id，建议用服务名，也可以随便取，只要保证唯一
           uri: lb://customer     # 代表从注册中心获取服务，且以 lb(load-balance) 负载均衡方式转发
