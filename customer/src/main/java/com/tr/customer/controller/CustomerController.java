@@ -2,6 +2,7 @@ package com.tr.customer.controller;
 
 import com.tr.customer.entity.Customer;
 import com.tr.customer.jpa.CustomerJpa;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +13,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @author TR
- * @date 2021/12/2 下午7:06
+ * @Author: TR
  */
+@Api(tags = "Customer")
 @RestController
 @RefreshScope /** 支持 Nacos 的动态刷新功能 */
 public class CustomerController {

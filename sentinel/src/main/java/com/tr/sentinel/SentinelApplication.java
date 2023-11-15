@@ -10,8 +10,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  *
  * 注：Sentinel Dashboard 默认不支持 nacos 的持久化，需要修改源码
  *
- * @author TR
- * @date 2022/8/18 上午10:11
+ * @Author: TR
  */
 @EnableDiscoveryClient
 @SpringBootApplication

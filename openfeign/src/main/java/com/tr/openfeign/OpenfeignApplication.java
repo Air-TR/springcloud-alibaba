@@ -8,8 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * 此项目：验证 Openfeign 相关功能
  *
- * @author TR
- * @date 2022/8/18 上午10:37
+ * @Author: TR
  */
 @EnableDiscoveryClient
 @EnableFeignClients

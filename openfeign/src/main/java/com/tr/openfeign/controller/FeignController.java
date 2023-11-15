@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * @author TR
- * @date 2022/8/18 上午10:45
+ * @Author: TR
  */
 @RestController
 public class FeignController {

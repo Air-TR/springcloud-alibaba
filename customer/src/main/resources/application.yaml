@@ -3,14 +3,16 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/springcloud?useUnicode=true&characterEncoding=utf-8&useSSL=true
+    url: jdbc:mysql://127.0.0.1:3307/cloud-customer?serverTimezone=Asia/Shanghai
     username: root
-    password: root
+    password: 123456
   jpa:
     show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
   jackson:
     time-zone: Asia/Shanghai
-
 
 config:
   value: Nacos Config Value

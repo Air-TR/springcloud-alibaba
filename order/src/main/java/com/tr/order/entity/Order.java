@@ -9,8 +9,7 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * @author TR
- * @date 2021/12/2 下午8:01
+ * @Author: TR
  */
 @Data
 @Entity(name = "orders")

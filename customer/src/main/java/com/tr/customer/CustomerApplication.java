@@ -12,8 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * 	3.gateway（需启动 gateway 项目）
  * 	4.sentinel
  *
- * @author TR
- * @date 2022/1/26 下午5:25
+ * @Author: TR
  */
 @EnableDiscoveryClient
 @EnableFeignClients

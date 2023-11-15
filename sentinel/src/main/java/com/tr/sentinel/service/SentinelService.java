@@ -4,8 +4,7 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import org.springframework.stereotype.Service;
 
 /**
- * @author TR
- * @date 2022/8/18 上午9:42
+ * @Author: TR
  */
 @Service
 public class SentinelService {

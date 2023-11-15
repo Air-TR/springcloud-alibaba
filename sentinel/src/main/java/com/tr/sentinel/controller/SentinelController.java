@@ -9,8 +9,7 @@ import javax.annotation.Resource;
 import java.util.Date;
 
 /**
- * @author TR
- * @date 2022/8/18 上午9:44
+ * @Author: TR
  */
 @RestController
 public class SentinelController {

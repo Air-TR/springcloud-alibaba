@@ -8,8 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * @author TR
- * @date 2021/12/2 下午7:04
+ * @Author: TR
  */
 @Data
 @Entity

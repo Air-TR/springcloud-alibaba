@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 在服务提供者里配置这个类，在 Sentinel Dashboard 中配置的"授权规则"才会生效。
  *
- * @author TR
- * @date 2022/8/20 下午3:42
+ * @Author: TR
  */
 @Component
 public class HeaderOriginParser implements RequestOriginParser {

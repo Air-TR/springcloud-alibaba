@@ -5,8 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 /**
- * @author TR
- * @date 2021/12/2 下午7:05
+ * @Author: TR
  */
 public interface CustomerJpa extends JpaRepository<Customer, Integer> {
 

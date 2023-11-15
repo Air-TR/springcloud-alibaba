@@ -20,5 +20,3 @@ spring:
           uri: lb://order
           predicates:
             - Path=/order/**
-    compatibility-verifier:
-      enabled: false  # 关闭兼容性校验，不关闭的话，本项目中使用的 cloud 版本与 boot2.4 以上版本不兼容，需把 boot 版本降到 2.3.x / 2.4.x
