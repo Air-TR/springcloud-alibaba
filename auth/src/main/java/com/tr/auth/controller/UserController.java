@@ -2,6 +2,7 @@ package com.tr.auth.controller;
 
 import com.tr.auth.controller.dto.UserUpdateDto;
 import com.tr.auth.entity.User;
+import com.tr.auth.repository.UserRepository;
 import com.tr.auth.service.UserService;
 import io.swagger.annotations.Api;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -24,6 +25,14 @@ public class UserController {
 
     @Resource
     private UserService userService;
+
+    @Resource
+    private UserRepository userRepository;
+
+    @GetMapping("/user/getId/{username}")
+    public Integer findIdByUsername(@PathVariable String username) {
+        return userRepository.findIdByUsername(username);
+    }
 
     @GetMapping("/user/{id}")
     public User findById(@PathVariable Integer id) {

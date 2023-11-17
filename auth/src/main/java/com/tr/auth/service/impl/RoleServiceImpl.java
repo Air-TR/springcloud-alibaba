@@ -2,11 +2,11 @@ package com.tr.auth.service.impl;
 
 import com.tr.auth.controller.dto.RoleUpdateDto;
 import com.tr.auth.entity.Role;
-import com.tr.auth.kit.BeanKit;
-import com.tr.auth.kit.StringKit;
+import com.tr.auth.common.kit.BeanKit;
+import com.tr.auth.common.kit.StringKit;
 import com.tr.auth.repository.RoleRepository;
 import com.tr.auth.service.RoleService;
-import com.tr.auth.exception.BusinessException;
+import com.tr.auth.common.exception.BusinessException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

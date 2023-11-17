@@ -17,12 +17,6 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
-        <!-- 以下两种方式都可用，建议根据 cloud/boot 选择       -->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.security.oauth.boot</groupId>-->
-<!--            <artifactId>spring-security-oauth2-autoconfigure</artifactId>-->
-<!--            <version>2.1.2.RELEASE</version>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>

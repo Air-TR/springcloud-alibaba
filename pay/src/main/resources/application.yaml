@@ -1,0 +1,8 @@
+server:
+  port: 9003
+  servlet:
+    context-path: /pay
+
+security:
+  enable: true
+  ex-path: /swagger-resources/**,/swagger-ui.html,/v2/api-docs,/webjars/**,/ex

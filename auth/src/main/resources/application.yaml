@@ -1,0 +1,31 @@
+server:
+  port: 8999
+  servlet:
+    context-path: /auth
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/cloud-auth?serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+  redis:
+    database: 10
+    host: 127.0.0.1
+    port: 6379
+    max-wait: 30000
+    max-active: 100
+    max-idle: 20
+    min-idle: 0
+    timeout: 5000
+
+security:
+  enable: true
+  ex-path: /swagger-resources/**,/swagger-ui.html,/v2/api-docs,/webjars/**,/register,/login
+  token:
+    alive-time: 3600

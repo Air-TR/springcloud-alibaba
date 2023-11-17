@@ -30,8 +30,8 @@ public class BaseEntity {
     @UpdateTimestamp
     private Date updateTime;
     @CreatedBy
-    protected Integer createBy;
+    private Integer createBy;
     @LastModifiedBy
-    protected Integer updateBy;
+    private Integer updateBy;
 
 }

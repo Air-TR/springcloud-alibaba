@@ -5,7 +5,7 @@ import com.tr.auth.controller.dto.RoleUpdateDto;
 import com.tr.auth.controller.dto.UserRoleAddDto;
 import com.tr.auth.entity.Role;
 import com.tr.auth.entity.UserRole;
-import com.tr.auth.kit.ConvertKit;
+import com.tr.auth.common.kit.ConvertKit;
 import com.tr.auth.service.RoleService;
 import com.tr.auth.service.UserRoleService;
 import io.swagger.annotations.Api;

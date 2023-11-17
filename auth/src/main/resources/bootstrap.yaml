@@ -1,17 +1,12 @@
-server:
-  port: 8999
-  servlet:
-    context-path: /auth
-
 spring:
   application:
     name: auth
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848  # Nacos 服务注册中心地址
-        namespace: tr  # 使用 public 命名空间可以注掉该配置
+        server-addr: 127.0.0.1:8848
+        namespace: tr
       config:
-        server-addr: 127.0.0.1:8848  # Nacos 配置中心地址
-        file-extension: yaml          # 指定 yaml 格式的配置件
-        namespace: tr  # 使用 public 命名空间可以注掉该配置
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        namespace: tr
