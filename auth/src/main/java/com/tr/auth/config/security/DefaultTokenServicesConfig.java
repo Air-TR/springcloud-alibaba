@@ -16,25 +16,23 @@ import javax.annotation.Resource;
 public class DefaultTokenServicesConfig {
 
     @Resource
-    private TokenStore tokenStore;
+    private TokenStore tokenStore; // TokenStoreConfig 中定义
 
     @Resource
-    private AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager; // WebSecurityConfig 中定义
 
-    @Bean
-    public TokenEnhancer tokenEnhancer() {
-        return new MyTokenEnhancer();
-    }
+    @Resource
+    private TokenEnhancer tokenEnhancer; // WebSecurityConfig 中定义
 
     @Bean
     public DefaultTokenServices defaultTokenServices() {
         DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
         defaultTokenServices.setTokenStore(tokenStore);
-        defaultTokenServices.setTokenEnhancer(tokenEnhancer());
+        defaultTokenServices.setTokenEnhancer(tokenEnhancer);
         defaultTokenServices.setAuthenticationManager(authenticationManager);
-        // 支持使用refresh token刷新access token
+        // 支持使用 refresh_token 刷新 access_token
         defaultTokenServices.setSupportRefreshToken(true);
-        // 允许重复使用refresh token
+        // 允许重复使用 refresh_token
         defaultTokenServices.setReuseRefreshToken(true);
         return defaultTokenServices;
     }

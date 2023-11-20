@@ -28,15 +28,15 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Resource
     private DataSource dataSource;
     @Resource
-    private TokenStore tokenStore;
+    private TokenStore tokenStore; // TokenStoreConfig 中定义
     @Resource
-    private JwtAccessTokenConverter jwtAccessTokenConverter;
+    private JwtAccessTokenConverter jwtAccessTokenConverter; // TokenStoreConfig 中定义
     @Resource
-    private AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager; // WebSecurityConfig 中定义
     @Resource
-    private UserDetailsService userDetailsService;
+    private UserDetailsService userDetailsService; // UserServiceImpl 中重写
     @Resource
-    private TokenEnhancer tokenEnhancer;
+    private TokenEnhancer tokenEnhancer; // WebSecurityConfig 中定义
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
