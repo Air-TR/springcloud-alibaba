@@ -1,4 +1,4 @@
-package com.tr.auth.common.kit;
+package com.tr.pay.kit;
 
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;

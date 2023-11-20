@@ -9,6 +9,6 @@ public interface AuthService {
 
     OAuth2AccessToken login(User user);
 
-    Boolean logout(String token);
+    Boolean logout();
 
 }

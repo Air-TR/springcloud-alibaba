@@ -3,7 +3,6 @@ package com.tr.auth.config.security.filter;
 import com.tr.auth.common.constant.RedisKey;
 import com.tr.auth.common.kit.JwtKit;
 import com.tr.auth.common.kit.ServletKit;
-import com.tr.auth.common.kit.TokenKit;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,7 +33,7 @@ public class TokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         // 获取 token
-        String token = TokenKit.getToken(request);
+        String token = JwtKit.getAuthorization(request);
         if (StringUtils.isBlank(token)) {
             // 放行
             filterChain.doFilter(request, response);

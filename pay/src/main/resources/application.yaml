@@ -5,4 +5,4 @@ server:
 
 security:
   enable: true
-  ex-path: /swagger-resources/**,/swagger-ui.html,/v2/api-docs,/webjars/**,/ex
+  ex-path: /swagger-resources/**,/swagger-ui.html,/v2/api-docs,/webjars/**,/ex-path

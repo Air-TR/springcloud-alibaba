@@ -10,7 +10,6 @@ import com.tr.auth.repository.UserRepository;
 import com.tr.auth.service.AuthService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.endpoint.TokenEndpoint;
 import org.springframework.stereotype.Service;
@@ -36,9 +35,6 @@ public class AuthServiceImpl implements AuthService {
     private StringRedisTemplate stringRedisTemplate;
 
     @Resource
-    private AuthenticationManager authenticationManager;
-
-    @Resource
     private TokenEndpoint tokenEndpoint;
 
     @Override
@@ -58,6 +54,7 @@ public class AuthServiceImpl implements AuthService {
         params.put("password", user.getPassword());
         try {
             OAuth2AccessToken accessToken = tokenEndpoint.postAccessToken(cusAuthentication, params).getBody();
+            accessToken.getAdditionalInformation();
             // token 存进 redis
             stringRedisTemplate.opsForValue().set(RedisKey.TOKEN + JwtKit.getUsername(accessToken.getValue()), accessToken.getValue(), tokenAliveTime, TimeUnit.SECONDS);
             return accessToken;
@@ -77,8 +74,8 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public Boolean logout(String token) {
-        String username = JwtKit.getUsername(token);
+    public Boolean logout() {
+        String username = JwtKit.getUsername();
 //        return stringRedisTemplate.delete(RedisKey.TOKEN + username) && stringRedisTemplate.delete(RedisKey.AUTHORITIES + username);
         return stringRedisTemplate.delete(RedisKey.TOKEN + username);
     }
