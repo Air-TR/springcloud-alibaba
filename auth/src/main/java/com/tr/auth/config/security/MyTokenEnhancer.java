@@ -35,7 +35,6 @@ public class MyTokenEnhancer implements TokenEnhancer {
         User user = userService.findByUsername(username);
         Map<String, Object> map = Maps.newHashMap();
         map.put("userId", user.getId());
-        map.put("userId", user.getId());
         return map;
     }
 
