@@ -16,7 +16,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Objects;
 
 /**
  * @Author: TR
@@ -48,12 +47,8 @@ public class TokenFilter extends OncePerRequestFilter {
         String username = JwtKit.getUsername(token);
         // 从 redis 中获取用户信息
         String userToken = stringRedisTemplate.opsForValue().get(RedisKey.TOKEN + username);
-        if (Objects.isNull(userToken)) {
-            ServletKit.renderString(response, 401, "用户未登录");
-            return;
-        }
         if (!token.equals(userToken)) {
-            ServletKit.renderString(response, 401, "登录已过期");
+            ServletKit.renderString(response, 401, "无效 token");
             return;
         }
         // 从 redis 中获取用户权限

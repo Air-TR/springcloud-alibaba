@@ -61,16 +61,6 @@ public class AuthServiceImpl implements AuthService {
         } catch (HttpRequestMethodNotSupportedException e) {
             throw new RuntimeException(e);
         }
-
-//        // 获取 userDetail
-//        org.springframework.security.core.userdetails.User userDetail = (org.springframework.security.core.userdetails.User) authenticate.getPrincipal();
-//        // 使用 username 生成 token（如要用 user_id 生成，根据 username 去获取 user_id）
-//        String token = JwtKit.createJWT(userDetail.getUsername(), tokenAliveTime * 1000);
-//        // token 存入 redis
-//        stringRedisTemplate.opsForValue().set(RedisKey.TOKEN + userDetail.getUsername(), token, tokenAliveTime, TimeUnit.SECONDS);
-//        // authorities 存入 redis
-//        stringRedisTemplate.opsForValue().set(RedisKey.AUTHORITIES + userDetail.getUsername(), JSON.toJSONString(userDetail.getAuthorities()), tokenAliveTime, TimeUnit.SECONDS);
-//        return token;
     }
 
     @Override

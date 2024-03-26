@@ -19,6 +19,8 @@ import javax.sql.DataSource;
 import java.util.Arrays;
 
 /**
+ * 身份认证服务配置适配器
+ *
  * @Author TR
  */
 @Configuration
@@ -38,6 +40,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Resource
     private TokenEnhancer tokenEnhancer; // WebSecurityConfig 中定义
 
+    /**
+     * 客户端详情配置
+     * @param clients
+     * @throws Exception
+     */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         // 设置 clients，使用 JdbcClientDetailsService 自动获取 oauth_client_details 表信息
@@ -45,6 +52,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         clients.withClientDetails(new JdbcClientDetailsService(dataSource));
     }
 
+    /**
+     * 授权服务端点配置
+     * @param endpoints
+     * @throws Exception
+     */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         if (jwtAccessTokenConverter != null) {
@@ -66,6 +78,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //                .setClientDetailsService(ClientService)      // 如果上面 ClientDetailsServiceConfigurer 采用自定义配置，这里需要开启配置，并且 ClientService 需要继承 ClientDetailsService 重写 loadClientByClientId(String clientId) 方法，参考 orion
     }
 
+    /**
+     * 授权服务安全配置
+     * @param security
+     * @throws Exception
+     */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security.checkTokenAccess("permitAll()")   // isAuthenticated()

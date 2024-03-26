@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 public class TokenStoreConfig {
 
-    public static final String SIGN_KEY = "123123";
+    private static final String SIGN_KEY = "AuthSignKey";
 
     @Bean
     public TokenStore tokenStore() {

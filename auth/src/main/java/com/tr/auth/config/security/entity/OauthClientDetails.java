@@ -16,8 +16,8 @@ import javax.persistence.Id;
  *   `authorized_grant_types` varchar(256) COMMENT '授权类型',
  *   `web_server_redirect_uri` varchar(256),
  *   `authorities` varchar(256),
- *   `access_token_validity` int(11) COMMENT 'access_token的有效时间',
- *   `refresh_token_validity` int(11) COMMENT 'refresh_token的有效时间',
+ *   `access_token_validity` int(11) COMMENT 'access_token 有效时间',
+ *   `refresh_token_validity` int(11) COMMENT 'refresh_token 有效时间',
  *   `additional_information` varchar(4096),
  *   `autoapprove` varchar(256) COMMENT '是否允许自动授权',
  *   PRIMARY KEY (`client_id`) USING BTREE
