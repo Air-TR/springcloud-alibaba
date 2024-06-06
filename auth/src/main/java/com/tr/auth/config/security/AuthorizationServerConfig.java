@@ -47,8 +47,21 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        // 设置 clients，使用 JdbcClientDetailsService 自动获取 oauth_client_details 表信息
-        // 如需自定义，在这里配置自定义 Client 内容，如使用 ClientService 获取 clientList 后通过 builder（用 clients.inMemory() 获取）配置，参考 orion
+        /**
+         * 配置方式一（直接代码定义）
+         */
+        /*clients.inMemory()
+                .withClient("auth")
+                .secret(passwordEncoder.encode("123456"))
+                .scopes("all")
+                .accessTokenValiditySeconds(tokenAliveTime)
+                .authorizedGrantTypes("password", "refresh_token", "authorization_code");*/
+
+        /**
+         * 配置方式二（DB 定义 —— oauth_client_details 表）
+         *  设置 clients，使用 JdbcClientDetailsService 自动获取 oauth_client_details 表信息
+         *  如需自定义，在这里配置自定义 Client 内容，如使用 ClientService 获取 clientList 后通过 builder（用 clients.inMemory() 获取）配置
+         */
         clients.withClientDetails(new JdbcClientDetailsService(dataSource));
     }
 
